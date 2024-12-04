@@ -9,24 +9,28 @@ import {ChangeEvent, useState} from "react";
 
 
 function App() {
+   const  [firstName,setFirstName]=useState("")
+    const [address,setAddress]=useState("")
+
     const [customer,setCustomer]=useState({
-        firstName: "",
-        address: ""
+        firstName:"",
+        address:""
     })
-    function handleOnChange(event:ChangeEvent<HTMLInputElement>){
+    function handleOnChange(){
         setCustomer({
             ...customer,
-         [event.target.name]:event.target.value
+            firstName: firstName,
+            address: address
         })
     }
     return(
         <>
-            <input name="firstName" type="text" placeholder="Name" onChange={handleOnChange}/>
-            <input type="text" name="address" placeholder="address" onChange={handleOnChange}/>
-
-                <button>Submit</button> <br/>
-                {'hello  : ' +customer.firstName + ' From '  + customer.address}
-
+            <input name={'firstName'} type={"text"} placeholder={"First name"}
+                   onChange={(e: ChangeEvent<HTMLInputElement>) => setFirstName(e.target.value)}/>
+            <input name={'address'} type={"text"} placeholder={"Last name"}
+                   onChange={(e: ChangeEvent<HTMLInputElement>) => setAddress(e.target.value)}/>
+            <button onClick={handleOnChange}>Submit</button> <br/>
+            {'Hello ' +firstName +" From " + address}
         </>
     )
 
