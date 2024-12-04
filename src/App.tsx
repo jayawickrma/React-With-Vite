@@ -22,12 +22,19 @@ function App() {
     function deleteByEmail(){
         setCustomers((customers=>customers.filter(customer=>customer.email != email)))
     }
+    function updateCustomer() {
+        setCustomers((customers =>
+            customers.map((customer) =>
+                customer.email === email
+                    ? new Customer(name || customer.name, customer.email, customer.phone)
+                    : customer
+            )
+        ));
+    }
 
 
 
     return (
-
-
         <>
             <input name={'firstName'} type={"text"} placeholder={"First name"}
                    onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}/>
@@ -38,6 +45,7 @@ function App() {
             <button onClick={addCustomer}>Submit</button>
             <button onClick={deleteCustomer}>Delete Customer</button>
             <button onClick={deleteByEmail}>Delete by Email</button>
+            <button onClick={updateCustomer}>Update Customer</button>
 
             <br/>
             { customers.map((customer) => (
