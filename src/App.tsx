@@ -19,6 +19,11 @@ function App() {
     function deleteCustomer(){
         setCustomers(customers=>customers.slice(0,-1))
     }
+    function deleteByEmail(){
+        setCustomers((customers=>customers.filter(customer=>customer.email != email)))
+    }
+
+
 
     return (
 
@@ -32,6 +37,8 @@ function App() {
                    onChange={(e: ChangeEvent<HTMLInputElement>) => setNum(e.target.value)}/>
             <button onClick={addCustomer}>Submit</button>
             <button onClick={deleteCustomer}>Delete Customer</button>
+            <button onClick={deleteByEmail}>Delete by Email</button>
+
             <br/>
             { customers.map((customer) => (
 
