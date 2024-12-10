@@ -41,11 +41,11 @@ function App() {
             <input name={'email'} type={"email"} placeholder={"Email"}
                    onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}/>
             <input name={'num'} type={"email"} placeholder={"num"}
-                   onChange={(e: ChangeEvent<HTMLInputElement>) => setNum(e.target.value)}/>
-            <button onClick={addCustomer}>Submit</button>
+                   onChange={(e: ChangeEvent<HTMLInputElement>) => setNum(e.target.value)}/> <br/><br/>
+            <button onClick={addCustomer}>Add Customer</button>
             <button onClick={deleteCustomer}>Delete Customer</button>
             <button onClick={deleteByEmail}>Delete by Email</button>
-            <button onClick={updateCustomer}>Update Customer</button>
+            <button onClick={updateCustomer}>Update Customer</button> <br/><br/>
 
             <br/>
             { customers.map((customer) => (
