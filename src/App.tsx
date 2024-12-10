@@ -8,7 +8,7 @@ import {Customer} from "./Model/Customer.ts";
 function App() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [num, setNum] = useState("");
+    const [num, setPhone] = useState("");
 
     const [customers, setCustomers] = useState<Customer[]>([])
 
@@ -40,8 +40,8 @@ function App() {
                    onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}/>
             <input name={'email'} type={"email"} placeholder={"Email"}
                    onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}/>
-            <input name={'num'} type={"email"} placeholder={"num"}
-                   onChange={(e: ChangeEvent<HTMLInputElement>) => setNum(e.target.value)}/> <br/><br/>
+            <input name={'phone'} type={"tel"} placeholder={"Mobile Number"}
+                   onChange={(e: ChangeEvent<HTMLInputElement>) => setPhone(e.target.value)}/> <br/><br/>
             <button onClick={addCustomer}>Add Customer</button>
             <button onClick={deleteCustomer}>Delete Customer</button>
             <button onClick={deleteByEmail}>Delete by Email</button>
